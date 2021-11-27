@@ -13,29 +13,12 @@ def led_output(file):
             else:
                 color = frame[25+y*70,25+x*70]
             text = ('leds['+str(sum)+'] = CRGB('+str(color[2])+','+str(color[1])+','+str(color[0])+');\n')
-            exam = color[0]+color[1]+color[2]
-            if abs(mem[x][y] - exam)>20:
-                file.write(text)
-            mem[x][y] = exam
+            file.write(text)
             sum+=1
+        file.write('\n')
     file.write('FastLED.show();\n'+'delay(30);\n')
     file.close()
     
-cap = cv.VideoCapture('video/demons.mp4')
-file = 'output/led.txt'
-frames_num=cap.get(cv.CAP_PROP_FRAME_COUNT)
-pbar = tqdm(total = frames_num)
-nowframe = 0
-mem = np.arange(64).reshape(8,8)
-while True:
-    ret,frame = cap.read()
-    led_output(file)
-    nowframe+=1
-    pbar.update(1)  
-    if nowframe == frames_num:
-        pbar.close()
-        print('\nDecide UP!')
-        break
-cap.release()
-
+frame = cv.VideoCapture('picture/1.jpg')
+file = 'output/ledloop.txt'
 
