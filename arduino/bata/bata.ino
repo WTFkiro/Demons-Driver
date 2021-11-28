@@ -13,7 +13,6 @@ void setup()
     Serial.begin(9600);
     delay(1000);
     LEDS.addLeds<LED_TYPE, DATA_PIN, COLOR_ORDER>(leds, NUM_LEDS);
-
     FastLED.setBrightness(max_bright);
 }
 void loop()

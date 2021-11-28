@@ -14,11 +14,12 @@ def led_output(file):
                 color = frame[25+y*70,25+x*70]
             text = ('leds['+str(sum)+'] = CRGB('+str(color[2])+','+str(color[1])+','+str(color[0])+');\n')
             exam = color[0]+color[1]+color[2]
+            #简单的效验，但是挺管用
             if abs(mem[x][y] - exam)>10:
                 file.write(text)
             mem[x][y] = exam
             sum+=1
-    file.write('FastLED.show();\n'+'delay(30);\n')
+    file.write('FastLED.show();\n'+'delay(35);\n')
     file.close()
     
 cap = cv.VideoCapture('bata.mp4')

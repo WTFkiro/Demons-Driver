@@ -133,7 +133,7 @@ leds[30] = CRGB(9,1,45);
 FastLED.show();
 delay(40);
 
-for(i=0;i<=5;i++){
+for(i=0;i<=50;i++){
 leds[0] = CRGB(0,0,0);
 leds[1] = CRGB(0,0,0);
 leds[2] = CRGB(39,19,210);
@@ -183,7 +183,7 @@ leds[58] = CRGB(39,18,212);
 leds[61] = CRGB(39,18,212);
 leds[62] = CRGB(39,18,212);
 FastLED.show();
-delay(500-90*i);
+delay(500);
 leds[1] = CRGB(39,18,212);
 leds[2] = CRGB(0,0,0);
 leds[5] = CRGB(0,0,0);
@@ -228,10 +228,6 @@ leds[56] = CRGB(39,18,212);
 leds[57] = CRGB(0,0,0);
 leds[62] = CRGB(0,0,0);
 leds[63] = CRGB(39,18,212);
-FastLED.setBrightness(max_bright - 10*i);
 FastLED.show();
-delay(500-90*i);
+delay(500);
 }
-FastLED.setBrightness(max_bright);
-FastLED.show();
-delay(5000);

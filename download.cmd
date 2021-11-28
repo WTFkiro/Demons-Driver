@@ -1,1 +1,1 @@
-python3.8 D:/OpenCV/DEMONS/demons.py
+python3 .\demons.py
