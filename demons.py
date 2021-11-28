@@ -21,8 +21,8 @@ def led_output(file):
     file.write('FastLED.show();\n'+'delay(30);\n')
     file.close()
     
-cap = cv.VideoCapture('video/spider1.mp4')
-file = 'output/slice/spider1.txt'
+cap = cv.VideoCapture('bata.mp4')
+file = 'output/slice/bata2.txt'
 frames_num=cap.get(cv.CAP_PROP_FRAME_COUNT)
 pbar = tqdm(total = frames_num)
 nowframe = 0
