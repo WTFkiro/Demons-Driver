@@ -17,7 +17,7 @@ void setup()
   LEDS.addLeds<LED_TYPE, DATA_PIN, COLOR_ORDER>(leds, NUM_LEDS);
   FastLED.setBrightness(max_bright);
   pinMode(interruptPin, INPUT_PULLUP);
-  attachInterrupt(digitalPinToInterrupt(interruptPin), blink, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(interruptPin), Set_Open, CHANGE);
 }
 
 void loop()
@@ -41,7 +41,7 @@ void loop()
   FastLED.show();
 }
 
-void blink()
+void Set_Open()
 {
   button_state = 1;
 }

@@ -6,16 +6,8 @@ void Demons_Deal()
   leds[3] = CRGB(253, 80, 19);
   leds[4] = CRGB(253, 80, 19);
   leds[5] = CRGB(253, 80, 19);
-  for (i = 6; i <= 10; i++)
-  {
-    leds[i] = CRGB(0, 0, 0);
-  }
   leds[11] = CRGB(228, 62, 16);
   leds[12] = CRGB(253, 80, 19);
-  for (i = 13; i <= 64; i++)
-  {
-    leds[i] = CRGB(0, 0, 0);
-  }
   FastLED.show();
   delay(95);
   leds[1] = CRGB(0, 0, 0);
@@ -1120,23 +1112,7 @@ void Demons_Deal()
   leds[37] = CRGB(106, 16, 160);
   leds[38] = CRGB(104, 17, 158);
   leds[39] = CRGB(104, 17, 158);
-  leds[40] = CRGB(0, 16, 179);
-  leds[41] = CRGB(0, 15, 181);
-  leds[42] = CRGB(0, 16, 179);
-  leds[43] = CRGB(0, 16, 179);
-  leds[44] = CRGB(0, 16, 179);
-  leds[45] = CRGB(0, 16, 179);
-  leds[46] = CRGB(0, 16, 179);
-  leds[47] = CRGB(0, 16, 179);
-  leds[48] = CRGB(0, 16, 179);
-  leds[49] = CRGB(0, 16, 179);
-  leds[50] = CRGB(0, 16, 179);
-  leds[51] = CRGB(0, 16, 179);
-  leds[52] = CRGB(0, 16, 179);
-  leds[53] = CRGB(1, 15, 179);
-  leds[54] = CRGB(0, 16, 177);
-  leds[55] = CRGB(0, 16, 179);
-  leds[60] = CRGB(0, 16, 179);
+  fill_solid(leds+40, 21, CRGB(0, 16, 179));
   FastLED.show();
   delay(75);
   leds[0] = CRGB(165, 43, 173);
