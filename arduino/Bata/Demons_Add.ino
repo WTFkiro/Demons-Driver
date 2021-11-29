@@ -123,7 +123,7 @@ int Demons_Add()
     leds[12] = CRGB(0, 0, 0);
     leds[13] = CRGB(46, 36, 151);
     leds[21] = CRGB(0, 0, 0);
-    leds[36] = CRGB(1, 1, 1);
+    leds[36] = CRGB(0, 0, 0);
     leds[37] = CRGB(30, 22, 100);
     leds[41] = CRGB(0, 0, 0);
     leds[42] = CRGB(39, 29, 126);
@@ -344,7 +344,7 @@ int Demons_Add()
     leds[44] = CRGB(0, 0, 0);
     leds[50] = CRGB(0, 0, 0);
     leds[51] = CRGB(0, 0, 0);
-    leds[52] = CRGB(0, 0, 2);
+    leds[52] = CRGB(0, 0, 0);
     leds[53] = CRGB(0, 0, 0);
     leds[58] = CRGB(0, 0, 0);
     leds[61] = CRGB(0, 0, 0);

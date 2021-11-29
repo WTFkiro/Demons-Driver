@@ -42,7 +42,7 @@ void loop()
     }
     EVERY_N_MILLISECONDS(30)
     {
-        fadeToBlackBy(leds, NUM_LEDS, 10);
+        fadeToBlackBy(leds, NUM_LEDS, 15);
     }
     FastLED.show();
 }

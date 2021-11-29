@@ -1,5 +1,6 @@
 void Demons_DominateUP()
 {
+    Demons_Eye(800);
     fill_solid(leds, 64, CRGB::Black);
     FastLED.show();
     leds[16] = CRGB(78, 63, 253);
