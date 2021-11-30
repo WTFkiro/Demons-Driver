@@ -13,6 +13,7 @@ void loop()
 {
 	Demons_Deal();
 	Demons_Loop();
+	Demons_Eye(2000);
 	Demons_DecideUP();
 }
 
