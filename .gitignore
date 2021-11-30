@@ -1,10 +1,6 @@
 #vscode
 .vscode
 
-#media
-video/
-audio/
-
 #command
 *.cmd
 
