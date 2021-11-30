@@ -1,7 +1,12 @@
 #vscode
-*.json
 .vscode
+
+#media
+video/
+audio/
 
 #command
 *.cmd
+
+
 
