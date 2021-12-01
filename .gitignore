@@ -4,5 +4,10 @@
 #command
 *.cmd
 
-
+#temp
+/build
+*.mp3
+*.mp4
+*.jpg
+*.png
 

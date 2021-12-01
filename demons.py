@@ -9,25 +9,31 @@ def led_output(file):
     for y in range(0,8):
         for x in range(0,8):
             if y%2 == 0:
-                color = frame[25+y*70,520-x*70]
+                color = frame[25+y*70,520-x*70]   
             else:
                 color = frame[25+y*70,25+x*70]
+            RGB = (int(color[2]),int(color[1]),int(color[0]))
             text = ('leds['+str(sum)+'] = CRGB('+str(color[2])+','+str(color[1])+','+str(color[0])+');\n')
-            exam = color[0]+color[1]+color[2]
             #简单的效验，但是挺管用
-            if abs(mem[x][y] - exam)>10:
+            code = abs(RGB[0]-memR[x][y])+abs(RGB[1]-memG[x][y])+abs(RGB[2]-memB[x][y])
+            if code > 20:
                 file.write(text)
-            mem[x][y] = exam
             sum+=1
+            memR[x][y] = RGB[0]
+            memG[x][y] = RGB[1]
+            memB[x][y] = RGB[2]
     file.write('FastLED.show();\n'+'delay(35);\n')
     file.close()
     
-cap = cv.VideoCapture('bata.mp4')
-file = 'output/slice/bata2.txt'
+cap = cv.VideoCapture('video/killloop2.mp4')
+file = 'output/killloop.txt'
 frames_num=cap.get(cv.CAP_PROP_FRAME_COUNT)
 pbar = tqdm(total = frames_num)
 nowframe = 0
-mem = np.arange(700,764,1).reshape(8,8)
+memR = np.arange(500,564,1,dtype=list).reshape(8,8)
+memG = np.arange(500,564,1,dtype=list).reshape(8,8)
+memB = np.arange(500,564,1,dtype=list).reshape(8,8)
+
 while True:
     ret,frame = cap.read()
     led_output(file)
@@ -38,5 +44,6 @@ while True:
         print('\nDecide UP!')
         break
 cap.release()
+
 
 
