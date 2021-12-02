@@ -5,9 +5,11 @@
 *.cmd
 
 #temp
+/output
+/test
 /build
-*.mp3
+/Media/video
 *.mp4
 *.jpg
 *.png
-
+*.py
