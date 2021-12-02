@@ -161,7 +161,7 @@ void Demons_Bata()
         leds[59] = CRGB(0, 255, 0);
         leds[61] = CRGB(0, 255, 0);
         leds[62] = CRGB(0, 255, 0);
-        FastLED.setBrightness(max_bright - 15 * i);
+        FastLED.setBrightness(max_bright - 10 * i);
         FastLED.show();
         delay(300 - 90 * i);
 
@@ -203,7 +203,7 @@ void Demons_Bata()
         leds[59] = CRGB(0, 0, 0);
         leds[61] = CRGB(0, 0, 0);
         leds[62] = CRGB(0, 0, 0);
-        FastLED.setBrightness(max_bright - 20 * i);
+        FastLED.setBrightness(max_bright - 17 * i);
         FastLED.show();
         delay(300 - 90 * i);
     }

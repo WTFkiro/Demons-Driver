@@ -1,25 +1,35 @@
-# DEMONS DRIVER 
+# DEMONS DRIVER
+
 
 ## Python + OpenCV     
-采集原视频中led信息，将结果格式化输出到output
+>采集原视频中led信息，将结果格式化输出到output
 该程序同样适用于其他8X8点阵视频，调用有亿点麻烦  
 之后可能做成函数方便使用（可能）  
 
 ## Arduino + WS2812B   
-基于FastLED库   
-实现DEMONS驱动器的led面板效果      
+>基于[FastLED](https://github.com/FastLED)库   
+实现DEMONS驱动器的led面板效果  
+release1.0版本以后，将使用Wemos D1 R32开发   
 持续更新中    
 
+# Bilibili@正经的kiro
+>我的B站主页：<https://space.bilibili.com/25416919>  
+本项目代码开源，可自由下载，研究。  
+转载，发布等请注明GitHub项目源地址  
+仅供学习交流，请勿用作商业使用  
+  
+  
+  
 
 ## --------------12.02日更新---------------
 
 
 1. Demons Driver 1.0 release！  
-    13个不同的动画，包括了Demons腰带的所有动画，可自由组合  
-    包含对应的音频文件，可以自己增加音效    
-    预放变身动画和DominateUP-蝗虫动画两个工程文件，带有按键响应，直接烧录就可以使用  
+    * 13个不同的动画，包括了Demons腰带的所有动画，可自由组合  
+    * 包含对应的音频文件，可以自己增加音效    
+    * 预置变身动画和DominateUP-蝗虫动画两个工程文件，带有按键响应，可直接烧录使用  
 
-2. 新的ESP开发板到了，之后会将项目移植到Wemos D1 R32进行开发，4M flash可以做更大的工程啦
+2. 新的ESP32开发板到了，之后会将项目移植到Wemos D1 R32进行开发，4M flash可以做更大的工程啦
 
 ## --------------12.01日更新---------------
 

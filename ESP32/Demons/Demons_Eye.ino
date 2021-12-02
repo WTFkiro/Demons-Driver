@@ -9,10 +9,10 @@ void Demons_Eye(int Eye)
     leds[6] = CRGB(0, 0, 0);
     leds[7] = CRGB(0, 0, 0);
     leds[8] = CRGB(104, 18, 154);
-    leds[9] = CRGB(0, 0, 2);
+    leds[9] = CRGB(0, 0, 0);
     leds[10] = CRGB(0, 0, 0);
     leds[11] = CRGB(0, 0, 0);
-    leds[12] = CRGB(0, 0, 2);
+    leds[12] = CRGB(0, 0, 0);
     leds[13] = CRGB(0, 0, 0);
     leds[14] = CRGB(0, 0, 0);
     leds[15] = CRGB(104, 18, 156);
@@ -39,7 +39,7 @@ void Demons_Eye(int Eye)
     leds[36] = CRGB(0, 0, 0);
     leds[37] = CRGB(158, 59, 213);
     leds[38] = CRGB(156, 60, 213);
-    leds[39] = CRGB(0, 0, 4);
+    leds[39] = CRGB(0, 0, 0);
     leds[40] = CRGB(0, 0, 0);
     leds[41] = CRGB(0, 0, 0);
     leds[42] = CRGB(104, 18, 156);
@@ -65,7 +65,7 @@ void Demons_Eye(int Eye)
     leds[0] = CRGB(72, 10, 109);
     leds[7] = CRGB(72, 10, 109);
     leds[26] = CRGB(72, 10, 109);
-    leds[29] = CRGB(74, 9, 109);
+    leds[29] = CRGB(74, 10, 109);
     leds[32] = CRGB(72, 10, 109);
     leds[39] = CRGB(72, 10, 109);
     FastLED.show();
