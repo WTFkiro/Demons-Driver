@@ -1,9 +1,0 @@
-0001 deal
-0002 loop
-0003 decideUP
-0004 add
-0005 addloop
-0006 dominateUP
-0007 push
-0008 spider
-0009 bata
