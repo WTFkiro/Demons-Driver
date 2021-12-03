@@ -12,7 +12,7 @@
 release1.0版本以后，将使用Wemos D1 R32开发   
 持续更新中    
 
-# Bilibili@正经的kiro
+# bilibili@正经的kiro
 >我的B站主页：<https://space.bilibili.com/25416919>  
 本项目代码开源，可自由下载，研究。  
 转载，发布等请注明GitHub项目源地址  
@@ -24,6 +24,8 @@ release1.0版本以后，将使用Wemos D1 R32开发
     * update：优化了Anime目录结构，新增Anime工程文件，可直接调用动画使用
     * update：移除了Arduino目录，新增ESP32/Demons工程，可一次实现所有动画效果
     * notes： 如果需要使用新的ESP32工程文件，请提前导入[EspSoftwareSerial库](https://github.com/plerup/espsoftwareserial/)，该库函数可在Arduino上实现ESP32的软件串口通信
+
+2. 增加了恐龙，Push两次，超必杀三个动画
 
 
 ## 12.02日更新

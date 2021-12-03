@@ -12,7 +12,6 @@ const byte interruptPin = 26;    //按键引脚，用于中断
 int i, j, k;                     //循环变量
 int button_state = 0;            //传递按钮信号
 unsigned char order[4] = {0xAA, 0x06, 0x00, 0xB0};
-
 CRGB leds[NUM_LEDS]; //初始化灯带
 
 void setup()
@@ -42,6 +41,10 @@ void loop()
   {
     ADD(); //印章追加动画封装函数
   }
+  if (button_state == 7)
+  {
+    REQUIEM(); //镇魂曲必杀动画封装函数
+  }
   EVERY_N_MILLISECONDS(30)
   {
     fadeToBlackBy(leds, NUM_LEDS, 15);
@@ -62,5 +65,9 @@ void Set_Open()
   if (button_state == 4)
   {
     button_state = 5;
+  }
+  if (button_state == 6)
+  {
+    button_state = 7;
   }
 }

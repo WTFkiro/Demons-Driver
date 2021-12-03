@@ -24,6 +24,6 @@ int ADD()
         play(0x09);
         Demons_DominateUP();
         Demons_Bata();
-        button_state = 0;
+        button_state = 6;
     }
 }
