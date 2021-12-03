@@ -17,9 +17,14 @@ release1.0版本以后，将使用Wemos D1 R32开发
 本项目代码开源，可自由下载，研究。  
 转载，发布等请注明GitHub项目源地址  
 仅供学习交流，请勿用作商业使用  
-  
-  
-  
+
+## --------------12.03日更新---------------
+
+1. Demons Driver 1.1 release
+    * update：优化了Anime目录结构，新增Anime工程文件，可直接调用动画使用
+    * update：移除了Arduino目录，新增ESP32/Demons工程，可一次实现所有动画效果
+    * notes： 如果需要使用新的ESP32工程文件，请提前导入[EspSoftwareSerial库](https://github.com/plerup/espsoftwareserial/)，该库函数可在Arduino上实现ESP32的软件串口通信
+
 
 ## --------------12.02日更新---------------
 

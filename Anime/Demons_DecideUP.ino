@@ -1,6 +1,5 @@
 void Demons_DecideUP()
 {
-    Demons_Eye(1900);
     leds[16] = CRGB(156, 60, 211);
     leds[23] = CRGB(156, 60, 211);
     leds[25] = CRGB(158, 59, 211);

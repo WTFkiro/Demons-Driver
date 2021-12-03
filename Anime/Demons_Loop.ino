@@ -65,17 +65,7 @@ int Demons_Loop()
     leds[62] = CRGB(252, 252, 52);
     leds[63] = CRGB(252, 252, 52);
     FastLED.show();
-    for (i = 0; i <= 10; i++)
-    {
-        if (button_state == 1)
-        {
-            return 0;
-        }
-        else
-        {
-            delay(41);
-        }
-    }
+    delay(410);
     leds[0] = CRGB(1, 14, 181);
     leds[1] = CRGB(0, 16, 181);
     leds[2] = CRGB(0, 15, 181);
@@ -109,17 +99,7 @@ int Demons_Loop()
     leds[62] = CRGB(0, 16, 179);
     leds[63] = CRGB(0, 15, 183);
     FastLED.show();
-    for (i = 0; i <= 10; i++)
-    {
-        if (button_state == 1)
-        {
-            return 0;
-        }
-        else
-        {
-            delay(41);
-        }
-    }
+    delay(410);
     leds[9] = CRGB(0, 15, 181);
     leds[10] = CRGB(0, 15, 181);
     leds[13] = CRGB(0, 15, 181);
@@ -137,17 +117,7 @@ int Demons_Loop()
     leds[53] = CRGB(0, 15, 181);
     leds[54] = CRGB(0, 15, 181);
     FastLED.show();
-    for (i = 0; i <= 10; i++)
-    {
-        if (button_state == 1)
-        {
-            return 0;
-        }
-        else
-        {
-            delay(41);
-        }
-    }
+    delay(410);
     leds[18] = CRGB(0, 16, 179);
     leds[21] = CRGB(0, 16, 179);
     leds[27] = CRGB(250, 253, 52);
@@ -157,15 +127,5 @@ int Demons_Loop()
     leds[42] = CRGB(0, 17, 179);
     leds[45] = CRGB(0, 16, 179);
     FastLED.show();
-    for (i = 0; i <= 10; i++)
-    {
-        if (button_state == 1)
-        {
-            return 0;
-        }
-        else
-        {
-            delay(41);
-        }
-    }
+    delay(410);
 }

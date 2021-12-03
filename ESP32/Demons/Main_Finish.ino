@@ -1,4 +1,4 @@
-int Finish()
+int FINISH()
 {
     Demons_More();
     button_state = 0;

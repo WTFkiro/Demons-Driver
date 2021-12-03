@@ -6,7 +6,7 @@
 
 #temp
 /output
-/ESP32/test/*
+/ESP32/test
 /build
 /Media/video
 *.mp4
