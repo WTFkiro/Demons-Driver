@@ -1,4 +1,4 @@
-Void Demons_Lex()
+void Demons_Lex()
 {
     fill_solid(leds, 64, CRGB::Black);
     FastLED.show();

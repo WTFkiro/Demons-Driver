@@ -1,5 +1,6 @@
-Void Demons_Lion(){
-    leds[0] = CRGB::Black;
+void Demons_Lion()
+{
+  leds[0] = CRGB::Black;
   leds[1] = CRGB::Black;
   leds[2] = CRGB::Black;
   leds[3] = CRGB::Black;
