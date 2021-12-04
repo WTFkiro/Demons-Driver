@@ -18,6 +18,41 @@ release1.0版本以后，将使用Wemos D1 R32开发
 转载，发布等请注明GitHub项目源地址  
 仅供学习交流，请勿用作商业使用  
 
+
+## 12.04日更新
+
+1. Demons Driver 1.2 release  
+    所有动画全部制作完成
+
+    1. 契约签订
+        * Deal
+        * Deal Loop
+        * Demons Eye
+        * Decide UP
+    
+    2. 必杀技
+        * Charge
+        * Finish Push
+        * Finish Loop
+        * Demons Finish
+    
+    3. 道具增强
+        * Add
+        * Add Loop
+        * Add Push
+        * Dominate UP
+    
+    4. 超必杀
+        * Demons Requiem
+
+    5. 目前演示中出现过的所有印章
+        * Spider
+        * Bata
+        * Lex
+        * Lion
+
+2. 对应的所有音频分割完成
+   
 ## 12.03日更新
 
 1. Demons Driver 1.1 release
@@ -25,7 +60,10 @@ release1.0版本以后，将使用Wemos D1 R32开发
     * update：移除了Arduino目录，新增ESP32/Demons工程，可一次实现所有动画效果
     * notes： 如果需要使用新的ESP32工程文件，请提前导入[EspSoftwareSerial库](https://github.com/plerup/espsoftwareserial/)，该库函数可在Arduino上实现ESP32的软件串口通信
 
-2. 增加了恐龙，Push两次，超必杀三个动画
+2. 增加动画
+    * 恐龙
+    * 第二次按压
+    * 超必杀
 
 
 ## 12.02日更新
@@ -41,7 +79,10 @@ release1.0版本以后，将使用Wemos D1 R32开发
 ## 12.01日更新
 
 
-1. 增加了必杀技动画，charge动画
+1. 增加动画
+    * 充能
+    * 必杀技
+
 2. 优化了视频采集代码，采集准确率更高,设置条件分支批量导出颜色
 3. 在Premiere中设置了工程文件，提取动画更方便了
 
@@ -65,7 +106,13 @@ release1.0版本以后，将使用Wemos D1 R32开发
 ## 11.28日更新
 
 
-1. 增加了蝗虫的'Dominate UP'变身动画
+1. 增加动画
+    * 增强
+    * 增强循环
+    * 按压
+    * 主宰升级
+    * 蝗虫
+
 2. 上传了Aruduino工程文件，可直接烧录使用
 3. 优化了动画delay时间，方便和音效匹配
 
