@@ -22,7 +22,7 @@ void setup()
   FastLED.setBrightness(max_bright);
   pinMode(interruptPin, INPUT_PULLUP);
   attachInterrupt(digitalPinToInterrupt(interruptPin), Set_Open, CHANGE);
-  volume(0x02);   //音量设置0x00-0x1E
+  volume(0x10);   //音量设置0x00-0x1E
   playmode(0x01); //0x01:单曲循环 0x02:单次播放
   looptime(0xCC);
 }
