@@ -2,9 +2,12 @@ int ADD()
 {
     playmusic(1, 0x02);
     Demons_Add();
+    if (button_state == 7)
+    {
+        return 0;
+    }
     button_state = 0; //按键信号复位
-
-    playmode(0x01); //循环播放待机音
+    playmode(0x01);   //循环播放待机音
     playmusic(2, 0x02);
     Demons_AddLoop(); //在检测到按键前循环LOOP动画100次
 
@@ -23,9 +26,31 @@ int ADD()
         playmode(0x02);
         playmusic(1, 0x04);
         Demons_DominateUP();
-        playmusic(3, 0x02);
-        Demons_Bata();
-        playmusic(1, 0x05);
+        if (NowAnimal == 1)
+        {
+            playmusic(3, 0x01);
+            Demons_Spider();
+        }
+        else if (NowAnimal == 2)
+        {
+            playmusic(3, 0x02);
+            Demons_Bata();
+        }
+        else if (NowAnimal == 3)
+        {
+            playmusic(3, 0x03);
+            Demons_Lex();
+        }
+        else if (NowAnimal == 4)
+        {
+            playmusic(3, 0x04);
+            Demons_Lion();
+        }
+        if (ADDcount < 4)
+        {
+            ADDED[ADDcount] = NowAnimal;
+            ADDcount++;
+        }
         button_state = 6;
     }
 }

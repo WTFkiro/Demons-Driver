@@ -130,7 +130,7 @@ void Demons_Bata()
     leds[63] = CRGB(0, 255, 0);
     FastLED.show();
     delay(45);
-
+    playmusic(1, 0x05);
     for (i = 0; i <= 4; i++)
     {
         fill_solid(leds, 64, CRGB::Black);

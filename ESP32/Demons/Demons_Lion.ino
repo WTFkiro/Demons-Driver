@@ -171,6 +171,7 @@ void Demons_Lion()
   leds[62] = CRGB::Yellow;
   FastLED.show();
   delay(60);
+  playmusic(3, 0x04);
   for (i = 0; i <= 5; i++)
   {
     fill_solid(leds, 64, CRGB::Black);

@@ -155,7 +155,7 @@ void Demons_Lex()
     leds[61] = CRGB::Purple;
     FastLED.show();
     delay(40);
-
+    playmusic(1, 0x05);
     for (i = 0; i <= 4; i++)
     {
         leds[1] = CRGB::Black;

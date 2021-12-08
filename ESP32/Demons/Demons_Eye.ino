@@ -52,6 +52,18 @@ void Demons_Eye(int Eye)
     }
     FastLED.show();
     delay(80);
+    for (i = 0; i <= 5; i++)
+    {
+        FastLED.setBrightness(50 - 10 * i);
+        FastLED.show();
+        delay(20);
+    }
+    for (i = 0; i <= 5; i++)
+    {
+        FastLED.setBrightness(10 * i);
+        FastLED.show();
+        delay(20);
+    }
     leds[16] = CRGB(188, 128, 226);
     leds[23] = CRGB(188, 128, 226);
     leds[25] = CRGB(188, 128, 226);

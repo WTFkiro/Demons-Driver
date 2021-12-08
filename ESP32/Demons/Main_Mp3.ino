@@ -81,3 +81,21 @@ void volume(unsigned char vol)
     unsigned char volume[5] = {0xAA, 0x13, 0x01, vol, vol + 0xBE}; //0xBE=0xAA+0x13+0x01,即最后一位为校验和
     MySerial.write(volume, 5);
 }
+
+void volume_add()
+{
+    unsigned char addvolume[4] = {0xAA, 0x14, 0x00, 0xBE};
+    MySerial.write(addvolume, 4);
+}
+
+void volume_decrease()
+{
+    unsigned char decrease[4] = {0xAA, 0x15, 0x00, 0xBF};
+    MySerial.write(decrease, 4);
+}
+
+void insertmusic(int nowanimal)
+{
+    unsigned char cut[15] = {0xAA, 0x17, 0x0B, 0x02, 0x2F, 0x53, 0x2A, 0x2F, 0x30, 0x30 + nowanimal, 0x2A, 0x3F, 0x3F, 0x3F, 0xF0 + nowanimal};
+    MySerial.write(cut, 15);
+}

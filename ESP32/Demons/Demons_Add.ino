@@ -12,6 +12,7 @@ int Demons_Add()
     leds[52] = CRGB(255, 0, 255);
     FastLED.show();
     delay(33);
+    button_state = 10;
     leds[3] = CRGB(0, 0, 255);
     leds[4] = CRGB(0, 0, 255);
     leds[10] = CRGB(255, 0, 255);
@@ -69,6 +70,10 @@ int Demons_Add()
     leds[62] = CRGB(0, 0, 255);
     FastLED.show();
     delay(33);
+    if (button_state == 7)
+    {
+        return 0;
+    }
     leds[1] = CRGB(255, 0, 255);
     leds[2] = CRGB(80, 62, 251);
     leds[5] = CRGB(0, 0, 255);
@@ -114,6 +119,10 @@ int Demons_Add()
     delay(33);
     FastLED.show();
     delay(33);
+    if (button_state == 7)
+    {
+        return 0;
+    }
     leds[0] = CRGB(165, 114, 218);
     leds[1] = CRGB(0, 0, 0);
     leds[2] = CRGB(0, 0, 0);
@@ -200,6 +209,10 @@ int Demons_Add()
     leds[60] = CRGB(0, 0, 0);
     leds[61] = CRGB(0, 0, 0);
     leds[63] = CRGB(0, 0, 255);
+    if (button_state == 7)
+    {
+        return 0;
+    }
     FastLED.show();
     delay(33);
     FastLED.show();
@@ -213,5 +226,12 @@ int Demons_Add()
     leds[45] = CRGB(0, 0, 0);
     leds[58] = CRGB(0, 0, 0);
     FastLED.show();
-    delay(1000);
+    for (i = 0; i <= 10; i++)
+    {
+        if (button_state == 7)
+        {
+            return 0;
+        }
+        delay(100);
+    }
 }
