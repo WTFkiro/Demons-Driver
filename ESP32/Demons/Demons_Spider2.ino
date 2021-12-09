@@ -68,7 +68,7 @@ void Demons_Spider2()
     leds[45] = CRGB(40, 17, 214);
     leds[47] = CRGB(0, 0, 255);
     FastLED.show();
-    delay(40);
+    delay(50);
     leds[2] = CRGB(255, 0, 0);
     leds[3] = CRGB(151, 98, 210);
     leds[4] = CRGB(151, 99, 208);
@@ -134,7 +134,7 @@ void Demons_Spider2()
     leds[29] = CRGB(26, 17, 43);
     leds[30] = CRGB(9, 1, 45);
     FastLED.show();
-    delay(40);
+    delay(50);
 
     for (i = 0; i <= 4; i++)
     {
@@ -249,7 +249,7 @@ void Demons_Spider2()
         FastLED.show();
         delay(250 - 60 * i);
     }
-    delay(500);
+    delay(700);
     FastLED.setBrightness(max_bright);
     playmusic(1, 0x05);
     FastLED.show();

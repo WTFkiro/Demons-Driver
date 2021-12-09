@@ -1,7 +1,9 @@
 int FINISH()
 {
     playmusic(5, 0x06);
-    Demons_Eye(0, 1000);
+    Demons_Eye(0, 700);
+    playmusic(1, 0x09);
+    Demons_Eye(0, 400);
     button_state = 0;
     playmode(0x01);
     playmusic(2, 0x03);

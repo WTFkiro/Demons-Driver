@@ -9,7 +9,7 @@ KA: 1
     06 finish
     07 more
     08 requiem
-    06 charge
+    09 charge
 
 LO: 2
     01 loop

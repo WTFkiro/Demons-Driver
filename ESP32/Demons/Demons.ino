@@ -45,10 +45,10 @@ void setup()
   attachInterrupt(digitalPinToInterrupt(FunctionPin), Set_Open, CHANGE);
   attachInterrupt(digitalPinToInterrupt(S1), ANIMAL, CHANGE);
   attachInterrupt(digitalPinToInterrupt(KEY), GOADD, CHANGE);
-  volume(0x07);       //音量设置
+  volume(0x25);       //音量设置
   playmode(0x02);     //0x01:单曲循环 0x02:单次播放
   playmusic(1, 0x00); //开机音效
-  Demons_Eye(1000);
+  Demons_Eye(0, 1000);
   S1Last = digitalRead(S1);
   S2Last = digitalRead(S2);
 }
