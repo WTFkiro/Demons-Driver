@@ -1107,6 +1107,7 @@ void Demons_Requiem()
         FastLED.show();
         delay(20);
     }
+    delay(1500);
     leds[63] = CRGB::Black;
     FastLED.show();
     delay(35);

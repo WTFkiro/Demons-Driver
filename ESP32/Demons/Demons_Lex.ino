@@ -155,7 +155,6 @@ void Demons_Lex()
     leds[61] = CRGB::Purple;
     FastLED.show();
     delay(40);
-    playmusic(1, 0x05);
     for (i = 0; i <= 4; i++)
     {
         leds[1] = CRGB::Black;
@@ -255,7 +254,7 @@ void Demons_Lex()
         FastLED.show();
         delay(250 - 60 * i);
     }
-    delay(500);
+    delay(700);
     fill_solid(leds, 64, CRGB::Black);
     leds[1] = CRGB::Black;
     leds[2] = CRGB::Black;
@@ -309,6 +308,7 @@ void Demons_Lex()
     leds[60] = CRGB::Purple;
     leds[61] = CRGB::Purple;
     FastLED.setBrightness(max_bright);
+    playmusic(1, 0x05);
     FastLED.show();
     delay(3000);
 }

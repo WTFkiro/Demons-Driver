@@ -13,7 +13,7 @@ int ADD()
 
     if (button_state == 1) //如果100次内没有按键，跳过剩余部分
     {
-        playmusic(5, 0x02);
+        playmusic(5, 0x06);
         Demons_AddPush();
         button_state = 0;
 
@@ -25,11 +25,17 @@ int ADD()
     {
         playmode(0x02);
         playmusic(1, 0x04);
+        Demons_Eye(0, 800);
         Demons_DominateUP();
+        if (ADDcount < 4)
+        {
+            ADDED[ADDcount] = NowAnimal;
+            ADDcount++;
+        }
         if (NowAnimal == 1)
         {
             playmusic(3, 0x01);
-            Demons_Spider();
+            Demons_Spider2();
         }
         else if (NowAnimal == 2)
         {
@@ -45,11 +51,6 @@ int ADD()
         {
             playmusic(3, 0x04);
             Demons_Lion();
-        }
-        if (ADDcount < 4)
-        {
-            ADDED[ADDcount] = NowAnimal;
-            ADDcount++;
         }
         button_state = 6;
     }

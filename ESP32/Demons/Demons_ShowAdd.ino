@@ -4,7 +4,7 @@ int Demons_ShowAdd()
     {
         if (ADDED[k] != 0)
         {
-            insertmusic(ADDED[k]);
+            playmusic(4, ADDED[k]);
             if (ADDED[k] == 1)
             {
                 showspider();

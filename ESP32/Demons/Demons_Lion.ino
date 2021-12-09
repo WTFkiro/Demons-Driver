@@ -363,7 +363,7 @@ void Demons_Lion()
     FastLED.show();
     delay(25);
   }
-  delay(300);
+  delay(500);
   fill_solid(leds, 64, CRGB::Black);
   leds[1] = CRGB::OrangeRed;
   leds[2] = CRGB::OrangeRed;
@@ -407,6 +407,7 @@ void Demons_Lion()
   leds[60] = CRGB::Yellow;
   leds[63] = CRGB::Yellow;
   FastLED.setBrightness(max_bright);
+  playmusic(1, 0x05);
   FastLED.show();
   delay(3000);
 }

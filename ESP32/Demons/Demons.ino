@@ -10,10 +10,12 @@
 #define COLOR_ORDER GRB
 
 SoftwareSerial MySerial(18, 19); //19连接模块TX，18连接模块RX
-uint8_t max_bright = 50;         //设置最大亮度为50
-const byte interruptPin = 26;    //按键引脚，用于中断
-int i, j, k;                     //循环变量
-int count = 0;                   //旋钮模块计数
+uint8_t max_bright = 30;         //设置最大亮度为50
+const byte StampPin = 14;        //盖章按键引脚
+const byte LinePin = 27;         //台词按键引脚
+const byte FunctionPin = 26;
+int i, j, k;   //循环变量
+int count = 0; //旋钮模块计数
 int S1Last;
 int S2Last;
 int S1number;
@@ -32,15 +34,21 @@ void setup()
   delay(1000);
   LEDS.addLeds<LED_TYPE, DATA_PIN, COLOR_ORDER>(leds, NUM_LEDS);
   FastLED.setBrightness(max_bright);
-  pinMode(interruptPin, INPUT_PULLUP);
+  pinMode(StampPin, INPUT_PULLUP);
+  pinMode(LinePin, INPUT_PULLUP);
+  pinMode(FunctionPin, INPUT_PULLUP);
   pinMode(S1, INPUT);
   pinMode(S2, INPUT);
   pinMode(KEY, INPUT);
-  attachInterrupt(digitalPinToInterrupt(interruptPin), Set_Open, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(StampPin), Set_Open, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(LinePin), LINE, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(FunctionPin), Set_Open, CHANGE);
   attachInterrupt(digitalPinToInterrupt(S1), ANIMAL, CHANGE);
   attachInterrupt(digitalPinToInterrupt(KEY), GOADD, CHANGE);
-  volume(0x15);   //音量设置0x00-0x1E
-  playmode(0x02); //0x01:单曲循环 0x02:单次播放
+  volume(0x07);       //音量设置
+  playmode(0x02);     //0x01:单曲循环 0x02:单次播放
+  playmusic(1, 0x00); //开机音效
+  Demons_Eye(1000);
   S1Last = digitalRead(S1);
   S2Last = digitalRead(S2);
 }
@@ -76,17 +84,21 @@ void Set_Open()
   {
     button_state = 1;
   }
-  if (button_state == 2)
+  else if (button_state == 2)
   {
     button_state = 3;
   }
-  if (button_state == 4)
+  else if (button_state == 4)
   {
     button_state = 5;
   }
-  if (button_state == 6)
+  else if (button_state == 6)
   {
     button_state = 7;
+  }
+  else
+  {
+    button_state = 0;
   }
 }
 void VolumeSet()
@@ -162,12 +174,13 @@ void GOADD()
   {
     button_state = 5;
   }
-  else if (button_state = 10)
+  else
   {
     button_state = 7;
   }
-  else
-  {
-    button_state = 0;
-  }
+}
+
+void LINE()
+{
+  playmusic(6, 0x01);
 }

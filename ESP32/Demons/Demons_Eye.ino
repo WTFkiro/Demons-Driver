@@ -1,4 +1,4 @@
-void Demons_Eye(int Eye)
+void Demons_Eye(int model, int Eye)
 {
     leds[0] = CRGB(0, 0, 0);
     leds[1] = CRGB(0, 0, 0);
@@ -90,24 +90,99 @@ void Demons_Eye(int Eye)
     leds[39] = CRGB(104, 18, 156);
     FastLED.show();
     delay(Eye);
-    leds[0] = CRGB(74, 12, 111);
-    leds[7] = CRGB(74, 12, 111);
-    leds[26] = CRGB(74, 12, 111);
-    leds[29] = CRGB(74, 12, 111);
-    leds[32] = CRGB(74, 12, 111);
-    leds[39] = CRGB(74, 12, 111);
-    FastLED.show();
-    delay(45);
-    leds[0] = CRGB(0, 0, 0);
-    leds[7] = CRGB(0, 0, 0);
-    leds[26] = CRGB(0, 0, 0);
-    leds[29] = CRGB(0, 0, 0);
-    leds[32] = CRGB(0, 0, 0);
-    leds[39] = CRGB(0, 0, 0);
-    FastLED.show();
-    delay(45);
-    FastLED.show();
-    delay(45);
-    FastLED.show();
-    delay(45);
+    if (model == 0)
+    {
+        leds[0] = CRGB(74, 12, 111);
+        leds[7] = CRGB(74, 12, 111);
+        leds[26] = CRGB(74, 12, 111);
+        leds[29] = CRGB(74, 12, 111);
+        leds[32] = CRGB(74, 12, 111);
+        leds[39] = CRGB(74, 12, 111);
+        FastLED.show();
+        delay(45);
+        leds[0] = CRGB(0, 0, 0);
+        leds[7] = CRGB(0, 0, 0);
+        leds[26] = CRGB(0, 0, 0);
+        leds[29] = CRGB(0, 0, 0);
+        leds[32] = CRGB(0, 0, 0);
+        leds[39] = CRGB(0, 0, 0);
+        FastLED.show();
+        delay(45);
+        FastLED.show();
+        delay(45);
+        FastLED.show();
+        delay(45);
+    }
+    if (model == 1)
+    {
+        for (i = 0; i < 4; i++)
+        {
+            FastLED.setBrightness(30 - 10 * i);
+            FastLED.show();
+            delay(20);
+        }
+        for (i = 0; i < 4; i++)
+        {
+            FastLED.setBrightness(10 * i);
+            FastLED.show();
+            delay(20);
+        }
+        leds[0] = CRGB(74, 12, 111);
+        leds[7] = CRGB(74, 12, 111);
+        leds[26] = CRGB(74, 12, 111);
+        leds[29] = CRGB(74, 12, 111);
+        leds[32] = CRGB(74, 12, 111);
+        leds[39] = CRGB(74, 12, 111);
+        FastLED.show();
+        delay(70);
+        for (i = 0; i < 4; i++)
+        {
+            FastLED.setBrightness(30 - 10 * i);
+            FastLED.show();
+            delay(17);
+        }
+        for (i = 0; i < 4; i++)
+        {
+            FastLED.setBrightness(8 * i);
+            FastLED.show();
+            delay(17);
+        }
+        leds[0] = CRGB(0, 0, 0);
+        leds[7] = CRGB(0, 0, 0);
+        leds[26] = CRGB(0, 0, 0);
+        leds[29] = CRGB(0, 0, 0);
+        leds[32] = CRGB(0, 0, 0);
+        leds[39] = CRGB(0, 0, 0);
+        FastLED.show();
+        delay(50);
+        for (i = 0; i < 4; i++)
+        {
+            FastLED.setBrightness(24 - 8 * i);
+            FastLED.show();
+            delay(13);
+        }
+        for (i = 0; i < 4; i++)
+        {
+            FastLED.setBrightness(5 * i);
+            FastLED.show();
+            delay(13);
+        }
+        leds[8] = CRGB(0, 0, 0);
+        leds[15] = CRGB(0, 0, 0);
+        leds[17] = CRGB(0, 0, 0);
+        leds[22] = CRGB(0, 0, 0);
+        leds[24] = CRGB(0, 0, 0);
+        leds[31] = CRGB(0, 0, 0);
+        leds[42] = CRGB(0, 0, 0);
+        leds[45] = CRGB(0, 0, 0);
+        FastLED.show();
+        delay(40);
+        FastLED.setBrightness(0);
+        FastLED.show();
+        delay(40);
+        FastLED.setBrightness(10);
+        FastLED.show();
+        delay(40);
+        FastLED.setBrightness(max_bright);
+    }
 }

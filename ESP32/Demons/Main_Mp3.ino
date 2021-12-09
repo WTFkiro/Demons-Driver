@@ -1,5 +1,6 @@
 /* MP3模块 文件目录
 KA: 1
+    00 Driver ON
     01 Deal
     02 Add
     03 decideup
@@ -8,6 +9,7 @@ KA: 1
     06 finish
     07 more
     08 requiem
+    06 charge
 
 LO: 2
     01 loop
@@ -27,10 +29,16 @@ B： 4
     04 lion
 
 PU：5
-    01 push finish
-    02 push Add
-    03 push spider
-    04 push bata
+    01 push spider
+    02 push bata
+    03 push lex
+    04 push lion
+    05 push finish
+    06 push Add
+
+LI: 6
+    01 line1
+    02 merry Christmas
 */
 
 void playmusic(int folder, unsigned char Track)
@@ -59,6 +67,11 @@ void playmusic(int folder, unsigned char Track)
     else if (folder == 5) //PU
     {
         unsigned char PLAY[16] = {0xAA, 0x08, 0x0C, 0x02, 0x2F, 0x50, 0x55, 0x2A, 0x2F, 0x30, Track + 0x30, 0x2A, 0x3F, 0x3F, 0x3F, 0x34 + Track};
+        MySerial.write(PLAY, 16);
+    }
+    else if (folder == 6) //LI
+    {
+        unsigned char PLAY[16] = {0xAA, 0x17, 0x0C, 0x02, 0x2F, 0x4C, 0x49, 0x2A, 0x2F, 0x30, Track + 0x30, 0x2A, 0x3F, 0x3F, 0x3F, 0x33 + Track};
         MySerial.write(PLAY, 16);
     }
 }
@@ -96,6 +109,6 @@ void volume_decrease()
 
 void insertmusic(int nowanimal)
 {
-    unsigned char cut[15] = {0xAA, 0x17, 0x0B, 0x02, 0x2F, 0x53, 0x2A, 0x2F, 0x30, 0x30 + nowanimal, 0x2A, 0x3F, 0x3F, 0x3F, 0xF0 + nowanimal};
-    MySerial.write(cut, 15);
+    unsigned char cut[16] = {0xAA, 0x17, 0x0C, 0x02, 0x2F, 0x50, 0x55, 0x2A, 0x2F, 0x30, 0x30 + nowanimal, 0x2A, 0x3F, 0x3F, 0x3F, 0x43 + nowanimal};
+    MySerial.write(cut, 16);
 }

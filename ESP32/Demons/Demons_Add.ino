@@ -70,10 +70,6 @@ int Demons_Add()
     leds[62] = CRGB(0, 0, 255);
     FastLED.show();
     delay(33);
-    if (button_state == 7)
-    {
-        return 0;
-    }
     leds[1] = CRGB(255, 0, 255);
     leds[2] = CRGB(80, 62, 251);
     leds[5] = CRGB(0, 0, 255);
