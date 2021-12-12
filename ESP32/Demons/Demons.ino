@@ -3,17 +3,17 @@
 
 #define NUM_LEDS 64 //灯珠数量
 #define DATA_PIN 13 //数据引脚
-#define KEY 25
-#define S1 17
-#define S2 16
+#define KEY 16
+#define S1 25
+#define S2 17
 #define LED_TYPE WS2812
 #define COLOR_ORDER GRB
 
 SoftwareSerial MySerial(18, 19); //19连接模块TX，18连接模块RX
 uint8_t max_bright = 30;         //设置最大亮度为50
-const byte StampPin = 14;        //盖章按键引脚
+const byte StampPin = 26;        //盖章按键引脚
 const byte LinePin = 27;         //台词按键引脚
-const byte FunctionPin = 26;
+const byte FunctionPin = 14;
 int i, j, k;   //循环变量
 int count = 0; //旋钮模块计数
 int S1Last;
@@ -45,7 +45,7 @@ void setup()
   attachInterrupt(digitalPinToInterrupt(FunctionPin), Set_Open, CHANGE);
   attachInterrupt(digitalPinToInterrupt(S1), ANIMAL, CHANGE);
   attachInterrupt(digitalPinToInterrupt(KEY), GOADD, CHANGE);
-  volume(0x25);       //音量设置
+  volume(0x10);       //音量设置
   playmode(0x02);     //0x01:单曲循环 0x02:单次播放
   playmusic(1, 0x00); //开机音效
   Demons_Eye(0, 1000);
