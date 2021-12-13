@@ -1,5 +1,6 @@
 int DEAL()
 {
+  henshin_state = 1;
   playmusic(1, 0x01);
   Demons_Deal();
   button_state = 0; //按键信号复位

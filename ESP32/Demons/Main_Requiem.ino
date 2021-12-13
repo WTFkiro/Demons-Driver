@@ -1,5 +1,6 @@
 int REQUIEM()
 {
+    henshin_state = 4;
     playmusic(1, 0x07);
     Demons_PushTwice();
     delay(800);

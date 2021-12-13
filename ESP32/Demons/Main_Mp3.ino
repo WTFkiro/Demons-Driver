@@ -38,7 +38,12 @@ PU：5
 
 LI: 6
     01 line1
-    02 merry Christmas
+    02 self1
+    03 self2
+    04 self3
+    05 line2
+    06 fight
+    07 out
 */
 
 void playmusic(int folder, unsigned char Track)

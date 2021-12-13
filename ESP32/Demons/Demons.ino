@@ -1,3 +1,5 @@
+//https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+
 #include <SoftwareSerial.h>
 #include "FastLED.h"
 
@@ -14,12 +16,15 @@ uint8_t max_bright = 30;         //设置最大亮度为50
 const byte StampPin = 26;        //盖章按键引脚
 const byte LinePin = 27;         //台词按键引脚
 const byte FunctionPin = 14;
-int i, j, k;   //循环变量
-int count = 0; //旋钮模块计数
+int i, j, k;       //循环变量
+int count = 0;     //旋钮模块计数
+int linecount = 1; //台词计数
 int S1Last;
 int S2Last;
 int S1number;
 int button_state = 0; //传递按钮信号
+int switch_state = true;
+int henshin_state = 0;
 int NowAnimal = 0;
 double ADDED[4] = {0, 0, 0, 0};
 int ADDcount = 0;
@@ -40,12 +45,12 @@ void setup()
   pinMode(S1, INPUT);
   pinMode(S2, INPUT);
   pinMode(KEY, INPUT);
-  attachInterrupt(digitalPinToInterrupt(StampPin), Set_Open, CHANGE);
-  attachInterrupt(digitalPinToInterrupt(LinePin), LINE, CHANGE);
-  attachInterrupt(digitalPinToInterrupt(FunctionPin), Set_Open, CHANGE);
-  attachInterrupt(digitalPinToInterrupt(S1), ANIMAL, CHANGE);
-  attachInterrupt(digitalPinToInterrupt(KEY), GOADD, CHANGE);
-  volume(0x10);       //音量设置
+  attachInterrupt(digitalPinToInterrupt(StampPin), Set_Open, FALLING);
+  attachInterrupt(digitalPinToInterrupt(LinePin), LINE, FALLING);
+  attachInterrupt(digitalPinToInterrupt(FunctionPin), SWITCHBUTTON, FALLING);
+  attachInterrupt(digitalPinToInterrupt(S1), CHOOSEKNOB, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(KEY), GOADD, FALLING);
+  volume(0x08);       //音量设置
   playmode(0x02);     //0x01:单曲循环 0x02:单次播放
   playmusic(1, 0x00); //开机音效
   Demons_Eye(0, 1000);
@@ -71,6 +76,7 @@ void loop()
   {
     REQUIEM(); //镇魂曲必杀动画封装函数
   }
+  henshin_state = 0;
   EVERY_N_MILLISECONDS(30)
   {
     fadeToBlackBy(leds, NUM_LEDS, 15);
@@ -101,7 +107,7 @@ void Set_Open()
     button_state = 0;
   }
 }
-void VolumeSet()
+void VolumeSet() //通过旋钮来调节音量
 {
   S1number = digitalRead(S1);
   if (S1number != S1Last)
@@ -182,5 +188,40 @@ void GOADD()
 
 void LINE()
 {
-  playmusic(6, 0x01);
+  if (henshin_state == 3)
+  {
+    playmusic(6, 0x07);
+    henshin_state = 0;
+    playmode(0x02);
+  }
+  else if (henshin_state == 2 || henshin_state == 4)
+  {
+    playmusic(6, 0x06);
+  }
+  else
+  {
+    playmusic(6, linecount);
+  }
+  if (linecount >= 5)
+  {
+    linecount = 0;
+  }
+  linecount++;
+}
+
+void SWITCHBUTTON()
+{
+  switch_state = !switch_state;
+}
+
+void CHOOSEKNOB()
+{
+  if (switch_state)
+  {
+    ANIMAL();
+  }
+  else
+  {
+    VolumeSet();
+  }
 }

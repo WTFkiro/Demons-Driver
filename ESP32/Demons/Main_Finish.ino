@@ -1,5 +1,6 @@
 int FINISH()
 {
+    henshin_state = 2;
     playmusic(5, 0x06);
     Demons_Eye(0, 700);
     playmusic(1, 0x09);

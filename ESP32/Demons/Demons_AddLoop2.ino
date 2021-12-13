@@ -191,5 +191,9 @@ int Demons_AddLoop2()
                 delay(40);
             }
         }
+        if (henshin_state == 0)
+        {
+            return 0;
+        }
     }
 }

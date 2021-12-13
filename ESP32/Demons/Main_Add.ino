@@ -1,5 +1,6 @@
 int ADD()
 {
+    henshin_state = 3;
     playmusic(1, 0x02);
     Demons_Add();
     if (button_state == 7)
