@@ -15,22 +15,27 @@ SoftwareSerial MySerial(18, 19); //19连接模块TX，18连接模块RX
 uint8_t max_bright = 30;         //设置最大亮度为50
 const byte StampPin = 26;        //盖章按键引脚
 const byte LinePin = 27;         //台词按键引脚
-const byte FunctionPin = 14;
-int i, j, k;       //循环变量
-int count = 0;     //旋钮模块计数
-int linecount = 1; //台词计数
+const byte FunctionPin = 14;     //功能切换按键引脚
+int i, j, k;                     //循环变量
+int count = 0;                   //旋钮模块计数
+int linecount = 1;               //台词计数
 int S1Last;
 int S2Last;
+int Musicnumber;
+int MusicLast;
 int S1number;
-int button_state = 0; //传递按钮信号
-int switch_state = true;
-int henshin_state = 0;
-int NowAnimal = 0;
-double ADDED[4] = {0, 0, 0, 0};
-int ADDcount = 0;
-int played = 0;
-unsigned char order[4] = {0xAA, 0x06, 0x00, 0xB0};
-CRGB leds[NUM_LEDS]; //初始化灯带
+int button_state = 0;             //变身步骤状态
+int switch_state = true;          //模式选择状态
+int knob_state = true;            //旋钮功能选择
+int henshin_state = 0;            //当前变身状态
+int NowAnimal = 0;                //当前选择印章
+unsigned long previousMillis = 0; //记录当前时间
+unsigned long currentMillis;      //用于获取millis
+long interval = 60000;            //定义常量来表示固定的时间间隔
+double ADDED[4] = {0, 0, 0, 0};   //记录增强状态
+int ADDcount = 0;                 //记录增强印章数量
+int played = 0;                   //是否选择新印章
+CRGB leds[NUM_LEDS];              //初始化灯带
 
 void setup()
 {
@@ -45,12 +50,12 @@ void setup()
   pinMode(S1, INPUT);
   pinMode(S2, INPUT);
   pinMode(KEY, INPUT);
-  attachInterrupt(digitalPinToInterrupt(StampPin), Set_Open, FALLING);
-  attachInterrupt(digitalPinToInterrupt(LinePin), LINE, FALLING);
+  attachInterrupt(digitalPinToInterrupt(StampPin), CHOOSEBUTTON, FALLING);
+  attachInterrupt(digitalPinToInterrupt(LinePin), CHOOSEFUNCTION, FALLING);
   attachInterrupt(digitalPinToInterrupt(FunctionPin), SWITCHBUTTON, FALLING);
   attachInterrupt(digitalPinToInterrupt(S1), CHOOSEKNOB, CHANGE);
-  attachInterrupt(digitalPinToInterrupt(KEY), GOADD, FALLING);
-  volume(0x08);       //音量设置
+  attachInterrupt(digitalPinToInterrupt(KEY), CHOOSEKEY, FALLING);
+  volume(0x10);       //音量设置
   playmode(0x02);     //0x01:单曲循环 0x02:单次播放
   playmusic(1, 0x00); //开机音效
   Demons_Eye(0, 1000);
@@ -94,34 +99,9 @@ void Set_Open()
   {
     button_state = 3;
   }
-  else if (button_state == 4)
-  {
-    button_state = 5;
-  }
-  else if (button_state == 6)
-  {
-    button_state = 7;
-  }
   else
   {
     button_state = 0;
-  }
-}
-void VolumeSet() //通过旋钮来调节音量
-{
-  S1number = digitalRead(S1);
-  if (S1number != S1Last)
-  {
-    if (digitalRead(S2) != S1number)
-    {
-      volume_add();
-    }
-    else
-    {
-      volume_decrease();
-    }
-    Serial.println(count);
-    S1Last = S1number;
   }
 }
 
@@ -176,37 +156,14 @@ void ANIMAL() //通过旋钮模块选择印章
 
 void GOADD()
 {
-  if (button_state != 5)
-  {
-    button_state = 5;
-  }
-  else
+  if (button_state == 10)
   {
     button_state = 7;
   }
-}
-
-void LINE()
-{
-  if (henshin_state == 3)
+  else if (button_state != 5)
   {
-    playmusic(6, 0x07);
-    henshin_state = 0;
-    playmode(0x02);
+    button_state = 5;
   }
-  else if (henshin_state == 2 || henshin_state == 4)
-  {
-    playmusic(6, 0x06);
-  }
-  else
-  {
-    playmusic(6, linecount);
-  }
-  if (linecount >= 5)
-  {
-    linecount = 0;
-  }
-  linecount++;
 }
 
 void SWITCHBUTTON()
@@ -222,6 +179,64 @@ void CHOOSEKNOB()
   }
   else
   {
-    VolumeSet();
+    if (knob_state)
+    {
+      VolumeSet();
+    }
+    else
+    {
+      SelectMusic();
+    }
+  }
+}
+
+void SelectMusic()
+{
+  Musicnumber = digitalRead(S1);
+  if (Musicnumber != MusicLast)
+  {
+    if (digitalRead(S2) != Musicnumber)
+    {
+      nextmusic();
+    }
+    else
+    {
+      lastmusic();
+    }
+    MusicLast = Musicnumber;
+  }
+}
+
+void CHOOSEBUTTON()
+{
+  if (switch_state)
+  {
+    Set_Open();
+  }
+  else
+  {
+    lastfolder();
+  }
+}
+void CHOOSEFUNCTION()
+{
+  if (switch_state)
+  {
+    playline();
+  }
+  else
+  {
+    nextfolder();
+  }
+}
+void CHOOSEKEY()
+{
+  if (switch_state)
+  {
+    GOADD();
+  }
+  else
+  {
+    knob_state = !knob_state;
   }
 }
