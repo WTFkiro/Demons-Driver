@@ -1,12 +1,6 @@
 int DEAL()
 {
   henshin_state = 1;
-  if (NowAnimal == 3)
-  {
-    button_state = 0;
-    playmusic(6, 8);
-    return 0;
-  }
   playmusic(1, 0x01);
   Demons_Deal();
   button_state = 0; //按键信号复位
